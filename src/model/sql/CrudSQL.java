@@ -572,7 +572,7 @@ public class CrudSQL {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         
         String consulta = """
-                          SELECT cl.nombre nombreCl, a.num_exp, v.precio_mensual, 
+                          SELECT cl.nombre nombreCl, cl.edad, cl.empleo, a.num_exp, v.precio_mensual, 
                           p.nombre nombrePr, a.fecha_entrada, a.fecha_salida
                           FROM ARRENDAMIENTOS a, CLIENTES cl, VIVIENDAS v, PROPIETARIOS p
                           WHERE cl.dni = a.cliente and a.id_vivienda = v.cod_ref and 
@@ -591,7 +591,8 @@ public class CrudSQL {
                 a.setFechaEntrada(formato.parse(rs.getString("fecha_entrada")));
                 a.setFechaSalida(formato.parse(rs.getString("fecha_salida")));
                 a.setNombreCl(rs.getString("nombreCl"));
-                a.setNombrePr(rs.getString("nombrePr"));
+                a.setEdadCl(Integer.parseInt(rs.getString("edad")));
+                a.setEmpleoCl(rs.getString("empleo"));
                 a.setPrecio(Double.parseDouble(rs.getString("precio_mensual")));
                 lista.add(a);
                 

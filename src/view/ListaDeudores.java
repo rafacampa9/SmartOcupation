@@ -48,11 +48,11 @@ public class ListaDeudores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CLIENTE", "Nº EXPEDIENTE", "PRECIO", "PROPIETARIO", "FECHA ENTRADA", "FECHA SALIDA"
+                "CLIENTE", "EDAD", "EMPLEO", "Nº EXPEDIENTE", "PRECIO", "FECHA ENTRADA", "FECHA SALIDA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

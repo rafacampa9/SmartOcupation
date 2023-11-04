@@ -13,10 +13,10 @@ import java.util.Date;
 public class InfoExtensaAlquiler {
     
     //ATRIBUTOS
-    private int numExp, idVivienda, metros, numRooms, numBathrooms;
+    private int numExp, idVivienda, metros, numRooms, numBathrooms, edadCl;
     private Double precio;
     private boolean pagado;
-    private String nombreCl, nombrePr, ubicacion;
+    private String nombreCl, nombrePr, ubicacion, empleoCl;
     private Date fechaEntrada, fechaSalida;
     
     // CONSTRUCTORES
@@ -24,22 +24,40 @@ public class InfoExtensaAlquiler {
     public InfoExtensaAlquiler() {
     }
 
-    public InfoExtensaAlquiler(int numExp, int idVivienda, int metros, int numRooms, int numBathrooms, Double precio, boolean pagado, String nombreCl, String nombrePr, String ubicacion, Date fechaEntrada, Date fechaSalida) {
+    public InfoExtensaAlquiler(int numExp, int idVivienda, int metros, int numRooms, int numBathrooms, int edadCl, Double precio, boolean pagado, String nombreCl, String nombrePr, String ubicacion, String empleo, Date fechaEntrada, Date fechaSalida) {
         this.numExp = numExp;
         this.idVivienda = idVivienda;
         this.metros = metros;
         this.numRooms = numRooms;
         this.numBathrooms = numBathrooms;
+        this.edadCl = edadCl;
         this.precio = precio;
         this.pagado = pagado;
         this.nombreCl = nombreCl;
         this.nombrePr = nombrePr;
         this.ubicacion = ubicacion;
+        this.empleoCl = empleoCl;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
+        
     }
     
+    public int getEdadCl() {
+        return edadCl;
+    }
+
+    public void setEdadCl(int edadCl) {
+        this.edadCl = edadCl;
+    }
+
+    public String getEmpleoCl() {
+        return empleoCl;
+    }
+
     // GETTER Y SETTER
+    public void setEmpleoCl(String empleoCl) {
+        this.empleoCl = empleoCl;
+    }
 
     public int getNumExp() {
         return numExp;

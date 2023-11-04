@@ -7,9 +7,8 @@
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlPropietario.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Viviendas.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Fechas.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/SmartOcupation.jrxml</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/LogInAdmin.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlInicio.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/GenerarInforme.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/HistoricoAlquiler.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Alquiler.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/InicioAdmin.java</file>
@@ -18,10 +17,12 @@
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/sql/CrudSQL.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/sql/Conexion.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/ViviendasSinOcupar.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/GenerarInforme.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlInicioEmpleado.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/ListaDeudores.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/InfoExtensaAlquiler.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/smartocupation/SmartOcupation.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlLogIn.java</file>
         </group>
     </open-files>
 </project-private>

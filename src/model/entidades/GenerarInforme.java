@@ -2,15 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package controller;
+package model.entidades;
 
 /**
  *
  * @author rafacampa9
  */
 
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

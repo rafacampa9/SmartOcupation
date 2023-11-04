@@ -5,6 +5,7 @@
 package controller;
 
 
+import model.entidades.GenerarInforme;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -125,9 +126,10 @@ public class CtrlInicioEmpleado implements ActionListener{
             arrendamientos = crud.deudas();
             
             for (InfoExtensaAlquiler ar: arrendamientos){
-                Object [] fila = {ar.getNombreCl(), ar.getNumExp(), 
-                    ar.getPrecio(),formato.format(ar.getFechaEntrada()), 
-                    formato.format(ar.getFechaSalida()), ar.getNombrePr()};
+                Object [] fila = {ar.getNombreCl(), ar.getEdadCl(), ar.getEmpleoCl(),
+                    ar.getNumExp(), ar.getPrecio(),
+                    formato.format(ar.getFechaEntrada()), 
+                    formato.format(ar.getFechaSalida())};
                 
                 table2.addRow(fila);
             }
