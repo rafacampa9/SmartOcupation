@@ -31,11 +31,11 @@ public class InicioAdmin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnAlq = new javax.swing.JButton();
-        btnCl = new javax.swing.JButton();
-        btnViviendas = new javax.swing.JButton();
-        btnProp = new javax.swing.JButton();
-        btnInicio = new javax.swing.JButton();
+        rbArrendamientos = new javax.swing.JRadioButton();
+        rbViviendas = new javax.swing.JRadioButton();
+        rbClientes = new javax.swing.JRadioButton();
+        rbPropietarios = new javax.swing.JRadioButton();
+        rbInicio = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,53 +53,53 @@ public class InicioAdmin extends javax.swing.JFrame {
         jLabel2.setText("Escoja la tabla para administrar:");
         jPanel2.add(jLabel2);
 
-        btnAlq.setText("ARRENDAMIENTOS");
+        rbArrendamientos.setText("ARRENDAMIENTOS");
 
-        btnCl.setText("CLIENTES");
+        rbViviendas.setText("VIVIENDAS");
 
-        btnViviendas.setText("VIVIENDAS");
+        rbClientes.setText("CLIENTES");
 
-        btnProp.setText("PROPIETARIOS");
-        btnProp.addActionListener(new java.awt.event.ActionListener() {
+        rbPropietarios.setText("PROPIETARIOS");
+        rbPropietarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPropActionPerformed(evt);
+                rbPropietariosActionPerformed(evt);
             }
         });
 
-        btnInicio.setText("INICIO");
+        rbInicio.setText("INICIO");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(rbArrendamientos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnAlq)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnCl)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnViviendas)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnProp))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(btnInicio)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addComponent(rbViviendas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbClientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbPropietarios))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(rbInicio)
+                        .addGap(180, 180, 180)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAlq)
-                    .addComponent(btnCl)
-                    .addComponent(btnViviendas)
-                    .addComponent(btnProp))
-                .addGap(18, 18, 18)
-                .addComponent(btnInicio)
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(rbPropietarios)
+                    .addComponent(rbClientes)
+                    .addComponent(rbViviendas)
+                    .addComponent(rbArrendamientos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rbInicio)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3);
@@ -114,15 +114,15 @@ public class InicioAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPropActionPerformed
+    private void rbPropietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPropietariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPropActionPerformed
+    }//GEN-LAST:event_rbPropietariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,15 +167,15 @@ public class InicioAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAlq;
-    public javax.swing.JButton btnCl;
-    public javax.swing.JButton btnInicio;
-    public javax.swing.JButton btnProp;
-    public javax.swing.JButton btnViviendas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    public javax.swing.JRadioButton rbArrendamientos;
+    public javax.swing.JRadioButton rbClientes;
+    public javax.swing.JRadioButton rbInicio;
+    public javax.swing.JRadioButton rbPropietarios;
+    public javax.swing.JRadioButton rbViviendas;
     // End of variables declaration//GEN-END:variables
 }

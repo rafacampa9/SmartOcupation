@@ -31,11 +31,11 @@ public class CtrlInicioAdmin implements ActionListener{
     
     public CtrlInicioAdmin(InicioAdmin init) {
         this.init = init;
-        this.init.btnAlq.addActionListener(this);
-        this.init.btnCl.addActionListener(this);
-        this.init.btnInicio.addActionListener(this);
-        this.init.btnProp.addActionListener(this);
-        this.init.btnViviendas.addActionListener(this);
+        this.init.rbArrendamientos.addActionListener(this);
+        this.init.rbClientes.addActionListener(this);
+        this.init.rbInicio.addActionListener(this);
+        this.init.rbPropietarios.addActionListener(this);
+        this.init.rbViviendas.addActionListener(this);
     }
     
     public void iniciar(){
@@ -46,7 +46,7 @@ public class CtrlInicioAdmin implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         CrudSQL crud = new CrudSQL();
-        if (e.getSource() == init.btnCl){
+        if (e.getSource() == init.rbClientes){
             Cliente cliente = new Cliente();
             Clientes cl = new Clientes();
             
@@ -56,7 +56,7 @@ public class CtrlInicioAdmin implements ActionListener{
             init.setVisible(false);
         }
         
-        if (e.getSource() == init.btnProp){
+        if (e.getSource() == init.rbPropietarios){
             Propietario propietario = new Propietario();
             Propietarios prop = new Propietarios();
             
@@ -66,7 +66,7 @@ public class CtrlInicioAdmin implements ActionListener{
             init.setVisible(false);
         }
         
-        if (e.getSource() == init.btnInicio){
+        if (e.getSource() == init.rbInicio){
             Inicio inicio = new Inicio();
             CtrlInicio ctrl = new CtrlInicio(inicio);
             ctrl.iniciar();
@@ -74,7 +74,7 @@ public class CtrlInicioAdmin implements ActionListener{
             init.setVisible(false);
         }
         
-        if (e.getSource() == init.btnViviendas){
+        if (e.getSource() == init.rbViviendas){
             Vivienda vivienda = new Vivienda();
             Viviendas v = new Viviendas();
             CtrlViviendas ctrl = new CtrlViviendas(vivienda, crud, v);
@@ -83,7 +83,7 @@ public class CtrlInicioAdmin implements ActionListener{
             init.setVisible(false);
         }
         
-        if (e.getSource() == init.btnAlq){
+        if (e.getSource() == init.rbArrendamientos){
             Arrendamiento arr = new Arrendamiento();
             Alquiler alq = new Alquiler();
             CtrlArrendamiento ctrl = new CtrlArrendamiento(arr, crud, alq);
