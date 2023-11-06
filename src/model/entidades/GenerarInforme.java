@@ -13,6 +13,7 @@ package model.entidades;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JFrame;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -35,8 +36,14 @@ public class GenerarInforme {
             String reportPath = rutaInforme + "\\" + nombreInforme;
             JasperReport jr = JasperCompileManager.compileReport(reportPath);
             JasperPrint jp = JasperFillManager.fillReport(jr, null, conn);
-            JasperViewer.viewReport(jp);
-   
+            //JasperViewer.viewReport(jp);
+            JasperViewer jasperViewer = new JasperViewer(jp);
+            JFrame frame = new JFrame();
+            frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+            frame.setContentPane(jasperViewer.getContentPane());
+            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            frame.setVisible(true);
+            
         } catch (ClassNotFoundException | SQLException | JRException e){
             JOptionPane.showMessageDialog(null, e);
         }
