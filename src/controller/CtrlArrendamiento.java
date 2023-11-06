@@ -11,6 +11,7 @@ import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.entidades.Arrendamiento;
@@ -76,6 +77,8 @@ public class CtrlArrendamiento implements ActionListener{
     public void iniciar(){
         alq.setTitle("Arrendamientos");
         alq.setLocationRelativeTo(null);
+        alq.setResizable(false);
+        alq.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
     
     public void limpiar(){

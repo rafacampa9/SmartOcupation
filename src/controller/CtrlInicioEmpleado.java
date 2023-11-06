@@ -5,6 +5,7 @@
 package controller;
 
 
+import java.awt.Window;
 import model.entidades.GenerarInforme;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -57,6 +58,7 @@ public class CtrlInicioEmpleado implements ActionListener{
     public void iniciar(){
         init.setTitle("Empleado");
         init.setLocationRelativeTo(null);
+        init.setResizable(false);
     }
     
     @Override
@@ -109,6 +111,8 @@ public class CtrlInicioEmpleado implements ActionListener{
                 table.addRow(fila);
             }
             hist.setVisible(true);
+            hist.setTitle("Lista histórica de arrendamientos");
+            hist.setResizable(false);
             hist.btnInf.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -134,12 +138,15 @@ public class CtrlInicioEmpleado implements ActionListener{
                 table2.addRow(fila);
             }
             morosos.setVisible(true);
+            morosos.setTitle("Lista de clientes sin pagar");
+            morosos.setResizable(false);
         }
         
         if (e.getSource() == init.rbDate){
             Fechas fecha = new Fechas();
             fecha.setTitle("Seleccionar Fechas");
             fecha.setLocationRelativeTo(null);
+            fecha.setResizable(false);
             fecha.setVisible(true);
             fecha.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             
@@ -158,6 +165,8 @@ public class CtrlInicioEmpleado implements ActionListener{
                         fecha.setVisible(false);
                         hist.setVisible(true);
                         hist.btnInf.setVisible(false);
+                        hist.setTitle("Lista Arrendamientos según fecha");
+                        hist.setResizable(false);
                         ArrayList<InfoExtensaAlquiler>arrendamientosFiltrados = 
                                 crud.arrendamientosPorFecha(fechaEntrada, fechaSalida);
 
@@ -190,6 +199,8 @@ public class CtrlInicioEmpleado implements ActionListener{
             }
             
             viv.setVisible(true);
+            viv.setTitle("Lista de viviendas sin alquilar");
+            viv.setResizable(false);
         }
     }
     

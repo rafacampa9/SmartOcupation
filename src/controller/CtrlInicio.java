@@ -32,6 +32,7 @@ public class CtrlInicio implements ActionListener{
     public void iniciar(){
         init.setTitle("SMART OCUPATION");
         init.setLocationRelativeTo(null);
+        init.setResizable(false);
     }   
 
     @Override

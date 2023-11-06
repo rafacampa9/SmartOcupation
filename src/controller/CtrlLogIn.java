@@ -33,6 +33,7 @@ public class CtrlLogIn implements ActionListener{
     public void iniciar(){
         log.setTitle("Administrador");
         log.setLocationRelativeTo(null);
+        log.setResizable(false);
     }
 
     @Override

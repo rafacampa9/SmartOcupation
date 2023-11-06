@@ -7,6 +7,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.entidades.Entidad;
@@ -46,6 +47,8 @@ public class CtrlPropietario implements ActionListener{
     public void iniciar(){
         prs.setTitle("Propietarios");
         prs.setLocationRelativeTo(null);
+        prs.setResizable(false);
+        prs.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     

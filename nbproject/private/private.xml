@@ -13,6 +13,7 @@
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Alquiler.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/InicioAdmin.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/InicioEmpleado.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlInicioAdmin.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Inicio.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/sql/CrudSQL.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/sql/Conexion.java</file>
@@ -23,6 +24,7 @@
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/InfoExtensaAlquiler.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/smartocupation/SmartOcupation.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlLogIn.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlClientes.java</file>
         </group>
     </open-files>
 </project-private>

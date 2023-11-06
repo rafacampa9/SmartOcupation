@@ -6,6 +6,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import model.entidades.Arrendamiento;
 import model.entidades.Cliente;
 import model.entidades.Propietario;
@@ -25,7 +26,8 @@ import view.Viviendas;
 public class CtrlInicioAdmin implements ActionListener{
 
     // ATRIBUTOS
-    InicioAdmin init = new InicioAdmin();
+    private InicioAdmin init = new InicioAdmin();
+    private ButtonGroup grupo;
     
     // CONSTRUCTOR
     
@@ -36,11 +38,19 @@ public class CtrlInicioAdmin implements ActionListener{
         this.init.rbInicio.addActionListener(this);
         this.init.rbPropietarios.addActionListener(this);
         this.init.rbViviendas.addActionListener(this);
+        this.grupo = new ButtonGroup();
+        
+        this.grupo.add(init.rbArrendamientos);
+        this.grupo.add(init.rbClientes);
+        this.grupo.add(init.rbInicio);
+        this.grupo.add(init.rbPropietarios);
+        this.grupo.add(init.rbViviendas);
     }
     
     public void iniciar(){
         init.setTitle("Administrador");
         init.setLocationRelativeTo(null);
+        init.setResizable(false);
     }
 
     @Override
@@ -53,7 +63,7 @@ public class CtrlInicioAdmin implements ActionListener{
             CtrlClientes ctrl = new CtrlClientes(cliente, crud, cl);
             ctrl.iniciar();
             cl.setVisible(true);
-            init.setVisible(false);
+            
         }
         
         if (e.getSource() == init.rbPropietarios){
@@ -63,7 +73,7 @@ public class CtrlInicioAdmin implements ActionListener{
             CtrlPropietario ctrl = new CtrlPropietario (propietario, crud, prop);
             ctrl.iniciar();
             prop.setVisible(true);
-            init.setVisible(false);
+            
         }
         
         if (e.getSource() == init.rbInicio){
@@ -80,7 +90,7 @@ public class CtrlInicioAdmin implements ActionListener{
             CtrlViviendas ctrl = new CtrlViviendas(vivienda, crud, v);
             ctrl.iniciar();
             v.setVisible(true);
-            init.setVisible(false);
+            
         }
         
         if (e.getSource() == init.rbArrendamientos){
@@ -89,7 +99,7 @@ public class CtrlInicioAdmin implements ActionListener{
             CtrlArrendamiento ctrl = new CtrlArrendamiento(arr, crud, alq);
             ctrl.iniciar();
             alq.setVisible(true);
-            init.setVisible(false);
+            
             
         }
     }
