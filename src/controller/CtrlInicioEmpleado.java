@@ -5,7 +5,7 @@
 package controller;
 
 
-import java.awt.Window;
+
 import model.entidades.GenerarInforme;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -117,7 +117,7 @@ public class CtrlInicioEmpleado implements ActionListener{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     GenerarInforme info = new GenerarInforme();
-                    String rutaInforme = "D:\\\\Escritorio\\\\fp DAM\\\\2º Año\\\\Desarrollo de Interfaces\\\\Trabajo";
+                    String rutaInforme = "src\\resources";
                     String nombreInforme = "SmartOcupation.jrxml";
                     info.generarInforme(rutaInforme, nombreInforme);
                 }

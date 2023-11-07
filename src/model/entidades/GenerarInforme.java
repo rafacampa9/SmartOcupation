@@ -41,7 +41,8 @@ public class GenerarInforme {
             JFrame frame = new JFrame();
             frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
             frame.setContentPane(jasperViewer.getContentPane());
-            frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            frame.setLocationRelativeTo(null);
+            frame.setSize(700, 400);
             frame.setVisible(true);
             
         } catch (ClassNotFoundException | SQLException | JRException e){

@@ -1,158 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db496ea7-f7ab-4adf-864e-bdf70e11c369">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Informe" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc73d439-843b-48ff-96cb-4a2d637e52d3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PostgreSQL"/>
 	<queryString language="SQL">
 		<![CDATA[select a.num_exp, v.precio_mensual, a.pagado,
-a.fecha_entrada, a.fecha_salida, cl.nombre cliente, p.nombre propietario
-from ARRENDAMIENTOS a, clientes cl, viviendas v, propietarios p
-where a.cliente = cl.dni and a.id_vivienda = v.cod_ref and
-v.propietario = p.dni;]]>
+a.fecha_entrada, a.fecha_salida, cl.nombre, p.nombre
+from arrendamientos a, viviendas v, propietarios p, clientes cl
+where a.cliente = cl.dni and v.propietario = p.dni and 
+a.id_vivienda = v.cod_ref]]>
 	</queryString>
-	<field name="num_exp" class="java.lang.Integer"/>
-	<field name="precio_mensual" class="java.math.BigDecimal"/>
-	<field name="pagado" class="java.lang.Boolean"/>
-	<field name="fecha_entrada" class="java.sql.Date"/>
-	<field name="fecha_salida" class="java.sql.Date"/>
-	<field name="cliente" class="java.lang.String"/>
-	<field name="propietario" class="java.lang.String"/>
+	<field name="num_exp" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="num_exp"/>
+		<property name="com.jaspersoft.studio.field.label" value="num_exp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="arrendamientos"/>
+	</field>
+	<field name="precio_mensual" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="precio_mensual"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio_mensual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="viviendas"/>
+	</field>
+	<field name="pagado" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="pagado"/>
+		<property name="com.jaspersoft.studio.field.label" value="pagado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="arrendamientos"/>
+	</field>
+	<field name="fecha_entrada" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="fecha_entrada"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha_entrada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="arrendamientos"/>
+	</field>
+	<field name="fecha_salida" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="fecha_salida"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha_salida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="arrendamientos"/>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clientes"/>
+	</field>
+	<field name="COLUMN_7" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="propietarios"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="80" splitType="Stretch">
 			<staticText>
-				<reportElement x="72" y="33" width="411" height="46" uuid="6a20a846-3b94-4618-aaa5-528557e5eccc"/>
+				<reportElement x="80" y="-20" width="410" height="70" uuid="ce0bab72-e46f-49bf-9ffa-1dff1af63005"/>
 				<textElement textAlignment="Center">
 					<font size="36" isBold="true"/>
 				</textElement>
 				<text><![CDATA[SMART OCUPATION]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="180" y="50" width="196" height="30" uuid="2e8061cd-52f1-409a-8f9e-e8bae4f04878"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Lista Arrendamientos:]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch">
-			<staticText>
-				<reportElement x="72" y="0" width="411" height="35" uuid="6a2a4b05-5358-4d04-a236-3c39a54294f3"/>
-				<textElement textAlignment="Center">
-					<font size="18" isBold="true"/>
-				</textElement>
-				<text><![CDATA[LISTA DE ARRENDAMIENTOS:]]></text>
-			</staticText>
-		</band>
+		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="62" splitType="Stretch">
+		<band height="61" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="41" width="94" height="20" uuid="b4a285d7-0a4b-442d-8841-49cd6df0afc9"/>
+				<reportElement x="-20" y="40" width="100" height="20" uuid="56f9738c-38b3-4207-b6bb-0c3b2ec2a36d"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Nº EXPEDIENTE]]></text>
+				<text><![CDATA[Nº Expediente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="94" y="41" width="50" height="20" uuid="c3d91b56-7f71-4b35-b8f4-d3941eb38593"/>
+				<reportElement x="80" y="40" width="70" height="20" uuid="67ab94ce-2346-45e5-86dc-5892e2d5edf1"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[PRECIO]]></text>
+				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="144" y="41" width="56" height="20" uuid="dcff08e0-f4bf-4c56-b793-469eb1b82748"/>
+				<reportElement x="150" y="40" width="70" height="20" uuid="d053fa3a-59cc-45eb-a5c2-e9499fc8c75e"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[PAGADO]]></text>
+				<text><![CDATA[Pagado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="41" width="104" height="20" uuid="cf75c462-4191-469d-9ed0-5f0fd8bc78e2"/>
+				<reportElement x="220" y="40" width="100" height="20" uuid="1c8d6cd9-67b4-4d9b-8854-2b3783d879f4"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[FECHA ENTRADA]]></text>
+				<text><![CDATA[Fecha Entrada]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="304" y="41" width="91" height="20" uuid="35a427d0-12e4-496e-9861-0ca3734d31e6"/>
+				<reportElement x="320" y="40" width="100" height="20" uuid="2677b13c-f780-4332-bdf6-afa3c9da5784"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[FECHA SALIDA]]></text>
+				<text><![CDATA[Fecha Salida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="395" y="41" width="71" height="20" uuid="b4624e73-e954-4134-a22f-3b86d149859e"/>
+				<reportElement x="420" y="40" width="80" height="20" uuid="9316c23d-e5b7-4aa3-afcf-d6106d63046b"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[CLIENTE]]></text>
+				<text><![CDATA[Cliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="466" y="41" width="88" height="20" uuid="95e87630-570b-4e38-b66a-9d238998bf47"/>
+				<reportElement x="500" y="40" width="75" height="20" uuid="3bdde996-6392-42a6-aa74-a9d9f1476d97"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[PROPIETARIO]]></text>
+				<text><![CDATA[Propietario]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="23" splitType="Stretch">
+		<band height="34" splitType="Stretch">
 			<line>
-				<reportElement x="0" y="0" width="554" height="1" uuid="ed602e87-8277-4c62-8069-a985532d7d2c"/>
+				<reportElement x="-20" y="0" width="595" height="1" uuid="61b6c35c-916d-4889-8c27-cc332410d975">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
 			</line>
 			<textField>
-				<reportElement x="0" y="1" width="94" height="20" uuid="af056851-4bac-4d15-8ba5-67e62b9f3f71"/>
+				<reportElement x="-20" y="1" width="100" height="29" uuid="10352d83-be66-43a8-b19a-1dbb3cf839fb"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{num_exp}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="94" y="1" width="50" height="20" uuid="178a2fbd-a11c-4e21-8236-13b225e558eb"/>
+				<reportElement x="80" y="0" width="70" height="30" uuid="1624a783-89b1-45e1-b887-1a683534a30f"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{precio_mensual}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="144" y="1" width="56" height="20" uuid="23253c38-eb37-4cef-9467-7a33d9c4082d"/>
+				<reportElement x="150" y="0" width="70" height="30" uuid="8ddcbaf8-9652-47e7-a451-daea40aa7e5b"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{pagado}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="204" y="1" width="100" height="20" uuid="98232635-92d5-4d7b-9f45-00cf9a0de4eb"/>
+				<reportElement x="220" y="1" width="100" height="30" uuid="7ded2e6b-aa23-4629-9628-5a2ddda6c684"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{fecha_entrega}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{fecha_entrada}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="304" y="1" width="91" height="20" uuid="ffbbfba6-665f-4703-82a1-6a7509fdfb6e"/>
+				<reportElement x="320" y="0" width="100" height="30" uuid="3a70ac79-11b4-40dc-ace6-7d0e9ce3d04a"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_salida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="395" y="1" width="71" height="20" uuid="f9ef9c8c-682d-41da-9c17-099ccf79ac7a"/>
+				<reportElement x="420" y="0" width="80" height="30" uuid="28bae2d5-5b85-4ce6-91b3-1b803cb78ddb"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{cliente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="466" y="1" width="89" height="20" uuid="9a10aa30-6163-4d08-be6f-d602b7e3dd88"/>
+				<reportElement x="500" y="1" width="75" height="30" uuid="a98d6073-787c-4083-a377-fd9bf3b60348"/>
 				<textElement textAlignment="Center">
-					<font size="12"/>
+					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{propietario}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{COLUMN_7}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="91" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch"/>
