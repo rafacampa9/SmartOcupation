@@ -422,7 +422,7 @@ public class CrudSQL {
         try {
             ps = conexion.prepareStatement(select);
 
-            // Utiliza reflection para obtener los valores de las propiedades del objeto
+            
             Class<?> clase = objeto.getClass();
             for (int i = 0; i < columnas.length; i++) {
                 String columna = columnas[i];
@@ -437,7 +437,7 @@ public class CrudSQL {
                 
                 Object valor = clase.getMethod(metodo).invoke(objeto);
 
-                // El tipo de dato de la columna determinará el método de set correspondiente
+                
                 if (valor instanceof String) {
                     ps.setString(i + 1, (String) valor);
                 } else if (valor instanceof Integer) {
@@ -523,7 +523,6 @@ public class CrudSQL {
         PreparedStatement ps = null;
         ResultSet rs = null;
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-        
         String consulta = """
                           SELECT a.num_exp, v.precio_mensual, a.pagado, a.fecha_entrada, 
                           a.fecha_salida, cl.nombre nombreCl, p.nombre nombrePr
@@ -531,14 +530,12 @@ public class CrudSQL {
                           WHERE cl.dni = a.cliente and a.id_vivienda = v.cod_ref 
                           and p.dni = v.propietario
                           """;
-        
         try{
             ps = conexion.prepareStatement(consulta);
             rs = ps.executeQuery();
             
             while (rs.next()){
                 a = new InfoExtensaAlquiler();
-                
                 a.setNumExp(Integer.parseInt(rs.getString("num_exp")));
                 a.setFechaEntrada(formato.parse(rs.getString("fecha_entrada")));
                 a.setFechaSalida(formato.parse(rs.getString("fecha_salida")));
@@ -546,10 +543,8 @@ public class CrudSQL {
                 a.setPagado(rs.getBoolean("pagado"));
                 a.setNombrePr(rs.getString("nombrePr"));
                 a.setPrecio(Double.parseDouble(rs.getString("precio_mensual")));
-                lista.add(a);
-                
+                lista.add(a);   
             }
-            
             return lista;
         } catch (SQLException | ParseException e){
             System.err.println(e.toString());

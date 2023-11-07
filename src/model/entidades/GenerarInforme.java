@@ -43,6 +43,7 @@ public class GenerarInforme {
             frame.setContentPane(jasperViewer.getContentPane());
             frame.setLocationRelativeTo(null);
             frame.setSize(700, 400);
+            frame.setTitle("Informe");
             frame.setVisible(true);
             
         } catch (ClassNotFoundException | SQLException | JRException e){
