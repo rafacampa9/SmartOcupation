@@ -3,27 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/resources/SmartOcupation.jrxml</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlArrendamiento.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/Arrendamiento.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlPropietario.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Viviendas.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Fechas.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/LogInAdmin.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlInicio.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/HistoricoAlquiler.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlViviendas.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Alquiler.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/InicioAdmin.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/InicioEmpleado.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlInicioAdmin.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Inicio.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/sql/CrudSQL.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/sql/Conexion.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/ViviendasSinOcupar.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/GenerarInforme.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlInicioEmpleado.java</file>
-            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/ListaDeudores.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/InfoExtensaAlquiler.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/Propietario.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/test/CtrlClientesTest.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/test/CtrlPropietarioTest.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlArrendamiento.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Propietarios.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlInicio.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlViviendas.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/Alquiler.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/InicioAdmin.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/InicioEmpleado.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/model/entidades/GenerarInforme.java</file>
+            <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/view/ListaDeudores.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/smartocupation/SmartOcupation.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlLogIn.java</file>
             <file>file:/D:/Documentos/NetBeansProjects/SmartOcupation/src/controller/CtrlClientes.java</file>

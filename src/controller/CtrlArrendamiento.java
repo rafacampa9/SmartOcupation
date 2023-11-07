@@ -129,21 +129,33 @@ public class CtrlArrendamiento implements ActionListener{
                 ar.setCliente(dniCliente);
                 ar.setIdVivienda(idVivienda);
                 ar.setPagado(pagado.equals("Sí"));
-
-                if (crud.insertar("ARRENDAMIENTOS", ar)){
-                    JOptionPane.showMessageDialog(null, 
+                
+                
+                Arrendamiento existente = (Arrendamiento) crud.buscar("ARRENDAMIENTOS", ar);
+                if (existente == null){
+                    if (crud.insertar("ARRENDAMIENTOS", ar)){
+                        JOptionPane.showMessageDialog(null, 
                             "Registro insertado correctamente");
-                    limpiar();
-                    limpiarTabla();
+                        limpiar();
+                        limpiarTabla();
     
-                } else {
-                    JOptionPane.showMessageDialog(null, 
+                    } else {
+                        JOptionPane.showMessageDialog(null, 
                             "Ha habido un error", 
                             "ERROR", 
                             JOptionPane.ERROR_MESSAGE);
-                    limpiar();
-                    limpiarTabla();
+                        limpiar();
+                        limpiarTabla();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null, 
+                            "Registro ya existente",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE
+                    );
                 }
+                
             }
  
         }
@@ -197,20 +209,33 @@ public class CtrlArrendamiento implements ActionListener{
                 ar.setCliente(dniCliente);
                 ar.setIdVivienda(idVivienda);
                 ar.setPagado(pagado.equals("Sí"));
-   
-                if (crud.modificar("ARRENDAMIENTOS", ar)){
-                    JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
-                    limpiar();
-                    limpiarTabla();
-                } else {
-                    JOptionPane.showMessageDialog(null, 
+                
+                Arrendamiento existente = (Arrendamiento) crud.buscar("ARRENDAMIENTOS", ar);
+                if (existente != null){
+                    if (crud.modificar("ARRENDAMIENTOS", ar)){
+                        JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
+                        limpiar();
+                        limpiarTabla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, 
                             "Ha habido un error",
                                   "ERROR",
                                     JOptionPane.ERROR_MESSAGE
+                        );
+                        limpiar();
+                        limpiarTabla();
+                    }
+                    
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Ha habido un error",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE
                     );
-                    limpiar();
-                    limpiarTabla();
                 }
+   
+                
             } else {
                 JOptionPane.showMessageDialog(null, 
                         "Por favor, introduzca el número de expediente",

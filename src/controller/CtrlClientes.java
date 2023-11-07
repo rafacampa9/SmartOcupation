@@ -85,19 +85,29 @@ public class CtrlClientes implements ActionListener{
                     cliente.setEdad(edad);
                 }
 
-            
-                if(crud.insertar("CLIENTES", cliente)){
-                    JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
-                    limpiar();
-                    limpiaTabla();
+                Cliente existente = (Cliente) crud.buscar("CLIENTES", cliente);
+                if (existente == null){
+                    if(crud.insertar("CLIENTES", cliente)){
+                        JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
+                        limpiar();
+                        limpiaTabla();
              
-                }else{
-                    JOptionPane.showMessageDialog(null, "Ha habido un error",
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Ha habido un error",
                             "ERROR",
                             JOptionPane.ERROR_MESSAGE);
-                    limpiar();
-                    limpiaTabla();
+                        limpiar();
+                        limpiaTabla();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null, 
+                            "Registro ya existente",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE
+                    );
                 }
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, asegúrese de rellenar todos los campos",
                             "ERROR",
@@ -141,14 +151,23 @@ public class CtrlClientes implements ActionListener{
                 cliente.setDni(dni);
                 cliente.setNombre(nombre);
                 cliente.setEmpleo(empleo);
-            if (edad != -1){
-                cliente.setEdad(edad);
-            } 
-   
-                if (crud.modificar("CLIENTES", cliente)){
-                    JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
-                    limpiar();
-                    limpiaTabla();
+                if (edad != -1){
+                    cliente.setEdad(edad);
+                } 
+            
+                Cliente existente = (Cliente)crud.buscar("CLIENTES", cliente);
+                if (existente!=null){
+                    if (crud.modificar("CLIENTES", cliente)){
+                        JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
+                        limpiar();
+                        limpiaTabla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ha habido un error",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE);
+                        limpiar();
+                        limpiaTabla();
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ha habido un error",
                             "ERROR",
@@ -156,10 +175,11 @@ public class CtrlClientes implements ActionListener{
                     limpiar();
                     limpiaTabla();
                 }
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, asegúrese de rellenar todos los campos necesarios",
-                            "ERROR",
-                            JOptionPane.ERROR_MESSAGE);
+                        "ERROR",
+                        JOptionPane.ERROR_MESSAGE);
                 limpiar();
                 limpiaTabla();
             }

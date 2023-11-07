@@ -120,19 +120,32 @@ public class CtrlViviendas implements ActionListener{
                 vivienda.setNumRooms(numRooms);
             if (precio != -1.0)
                 vivienda.setPrecioMensual(precio);
-                
-            if (crud.insertar("VIVIENDAS", vivienda)){
-                JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
-                limpiar();
-                limpiarTabla();
+            
+            Vivienda existente = (Vivienda) crud.buscar("VIVIENDAS", vivienda);
+            
+            if (existente == null){
+                if (crud.insertar("VIVIENDAS", vivienda)){
+                    JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
+                    limpiar();
+                    limpiarTabla();
     
-            } else {
-                JOptionPane.showMessageDialog(null, "Ha habido un error",
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ha habido un error",
                             "ERROR",
                             JOptionPane.ERROR_MESSAGE);
-                limpiar();
-                limpiarTabla();
-            }    
+                    limpiar();
+                    limpiarTabla();
+                }
+            } else {
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Registro ya existente",
+                        "ERROR",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+                
+                
 
         } 
         
@@ -231,11 +244,21 @@ public class CtrlViviendas implements ActionListener{
                     vivienda.setNumRooms(numRooms);
                 if (precio != -1.0)
                     vivienda.setPrecioMensual(precio);
-   
-                if (crud.modificar("VIVIENDAS", vivienda)){
-                    JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
-                    limpiar();
-                    limpiarTabla();
+                
+                Vivienda existente = (Vivienda) crud.buscar("VIVIENDAS", vivienda);
+                
+                if (existente!=null){
+                    if (crud.modificar("VIVIENDAS", vivienda)){
+                        JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
+                        limpiar();
+                        limpiarTabla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ha habido un error",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE);
+                        limpiar();
+                        limpiarTabla();
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ha habido un error",
                             "ERROR",
@@ -243,6 +266,8 @@ public class CtrlViviendas implements ActionListener{
                     limpiar();
                     limpiarTabla();
                 }
+   
+                
             } else {
                 JOptionPane.showMessageDialog(null, 
                         "Por favor, introduzca el código de referencia",

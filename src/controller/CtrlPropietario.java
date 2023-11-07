@@ -73,18 +73,30 @@ public class CtrlPropietario implements ActionListener{
                 pr.setDni(dni);
                 pr.setNombre(nombre);
             
-                if(crud.insertar("PROPIETARIOS", pr)){
-                    JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
-                    limpiar();
-                    limpiaTabla();
+                Propietario existente = (Propietario)crud.buscar("PROPIETARIOS", pr);
+                
+                if (existente == null){
+                    if(crud.insertar("PROPIETARIOS", pr)){
+                        JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
+                        limpiar();
+                        limpiaTabla();
              
-                }else{
-                    JOptionPane.showMessageDialog(null, "Ha habido un error",
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Ha habido un error",
                             "ERROR",
                             JOptionPane.ERROR_MESSAGE);
-                    limpiar();
-                    limpiaTabla();
+                        limpiar();
+                        limpiaTabla();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Registro ya existente",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE
+                    );
                 }
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, asegúrese de rellenar todos los campos",
                             "ERROR",
@@ -119,18 +131,27 @@ public class CtrlPropietario implements ActionListener{
                 pr.setDni(dni);
                 pr.setNombre(nombre);
                 
-                
-                if (crud.modificar("PROPIETARIOS", pr)){
-                    JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
-                    limpiar();
-                    limpiaTabla();
+                Propietario existente = (Propietario) crud.buscar("PROPIETARIOS", pr);
+                if (existente != null){
+                    if (crud.modificar("PROPIETARIOS", pr)){
+                        JOptionPane.showMessageDialog(null, "Registro modificado correctamente.");
+                        limpiar();
+                        limpiaTabla();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Ha habido un error",
+                            "ERROR",
+                            JOptionPane.ERROR_MESSAGE);
+                        limpiar();
+                        limpiaTabla();
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Ha habido un error",
+                    JOptionPane.showMessageDialog(null, "El registro que pretende modificar no existe",
                             "ERROR",
                             JOptionPane.ERROR_MESSAGE);
                     limpiar();
                     limpiaTabla();
                 }
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Por favor, asegúrese de rellenar todos los campos",
                             "ERROR",
