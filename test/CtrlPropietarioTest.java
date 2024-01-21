@@ -58,6 +58,10 @@ public class CtrlPropietarioTest {
     
     
     //************************** TESTS *****************************************
+    /**
+     * Test para insertar un registro
+     * en la tabla PROPIETARIOS
+     */
     @Test
     public void testInsertar() {
         /**
@@ -91,6 +95,12 @@ public class CtrlPropietarioTest {
         assertEquals(p.getNombre(), pr.getNombre());
     }
 
+    
+    
+    /**
+     * Test para leer los registros
+     * de la tabla PROPIETARIOS
+     */
     @Test
     public void testLeer() {
         /**
@@ -142,6 +152,12 @@ public class CtrlPropietarioTest {
 
     }
 
+    
+    
+    /**
+     * Test para modificar un registro
+     * de la tabla PROPIETARIOS
+     */
     @Test
     public void testModificar() {
         /**
@@ -178,6 +194,12 @@ public class CtrlPropietarioTest {
             assertNull(prop);
     }
 
+    
+    
+    /**
+     * Test para eliminar un registro
+     * de la tabla PROPIETARIOS
+     */
     @Test
     public void testEliminar() {
         /**
@@ -205,6 +227,12 @@ public class CtrlPropietarioTest {
         assertNull(prop);
     }
 
+    
+    
+    /**
+     * Test para buscar un registro 
+     * de la tabla PROPIETARIOS
+     */
     @Test
     public void testBuscar() {
         /**

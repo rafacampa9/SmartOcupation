@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
@@ -50,15 +46,15 @@ public class Fechas extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Fecha de entrada:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabel3.setText("Fecha de salida:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
-        jPanel2.add(fechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 120, 20));
-        jPanel2.add(fechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 120, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanel2.add(fechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 120, 20));
+        jPanel2.add(fechaSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 120, 20));
 
         btnSend.setText("ENVIAR");
-        jPanel2.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+        jPanel2.add(btnSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
         jPanel1.add(jPanel2);
 
@@ -70,7 +66,7 @@ public class Fechas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
 
         pack();

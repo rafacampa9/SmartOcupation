@@ -62,7 +62,7 @@ public class CtrlArrendamientoTest {
          * no exista
          */
         formato = new SimpleDateFormat("yyyy-MM-dd");
-        int idVivienda = 3, numExp = 23;
+        int idVivienda = 2, numExp = 8;
         boolean pagado = false;
         Date fecha_entrada, fecha_salida;
         try
@@ -100,6 +100,10 @@ public class CtrlArrendamientoTest {
     
     
     //***************************** TESTS **************************************
+    /**
+     * Test para insertar un registro
+     * en la tabla ARRENDAMIENTOS
+     */
     @Test
     public void testInsertar(){
          /**
@@ -154,6 +158,12 @@ public class CtrlArrendamientoTest {
     
     }
     
+    
+    
+    /**
+     * Test para leer los registros
+     * de la tabla ARRENDAMIENTOS
+     */
     @Test
     public void testLeer(){
         /**
@@ -247,6 +257,12 @@ public class CtrlArrendamientoTest {
         assertTrue(t);
     }
     
+    
+    
+    /**
+     * Test para eliminar un registro
+     * de la tabla ARRENDAMIENTOS
+     */
     @Test
     public void testEliminar(){
         /**
@@ -275,6 +291,12 @@ public class CtrlArrendamientoTest {
     
     }
     
+    
+    
+    /**
+     * Test para modificar un registro
+     * de la tabla ARRENDAMIENTOS
+     */
     @Test
     public void testModificar(){
         /**
@@ -347,6 +369,12 @@ public class CtrlArrendamientoTest {
         }
     }
     
+    
+    
+    /**
+     * Test para buscar un registro
+     * de la tabla ARRENDAMIENTOS
+     */
     @Test
     public void testBuscar(){
         /**

@@ -56,6 +56,10 @@ public class CtrlClientesTest {
     
     
 //********************************* TESTS **************************************   
+    /**
+     * Test para insertar un registro
+     * en la tabla CLIENTES
+     */
     @Test
     public void testInsertar() {
         /**
@@ -98,6 +102,11 @@ public class CtrlClientesTest {
     }
     
     
+    
+    /**
+     * Test para leer los registros
+     * de la tabla CLIENTES
+     */
     @Test
     public void testLeer(){
         /**
@@ -157,6 +166,11 @@ public class CtrlClientesTest {
     }
     
     
+    
+    /**
+     * Test para modificar un registro
+     * de la tabla CLIENTES
+     */
     @Test
     public void testModificar(){
         /**
@@ -198,6 +212,11 @@ public class CtrlClientesTest {
     }
     
     
+    
+    /**
+     * Test para eliminar un registro
+     * de la tabla CLIENTES
+     */
     @Test
     public void testEliminar(){
         /**
@@ -226,6 +245,11 @@ public class CtrlClientesTest {
     }
     
     
+    
+    /**
+     * Test para buscar un registro
+     * de la tabla CLIENTES
+     */
     @Test
     public void testBuscar(){
         /**

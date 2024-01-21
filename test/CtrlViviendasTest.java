@@ -30,7 +30,6 @@ public class CtrlViviendasTest {
     //************************** MÉTODOS ***************************************
     @Before
     public void setUp(){
-
         v = new Vivienda(
                 "Sentinel del Norte",
                 200,
@@ -46,7 +45,10 @@ public class CtrlViviendasTest {
     
     
     //**************************** TESTS ***************************************
-    
+    /**
+     * Test para insertar un registro
+     * en la tabla VIVIENDAS
+     */
     @Test
     public void testInsertar(){
         /**
@@ -97,6 +99,11 @@ public class CtrlViviendasTest {
     }
     
     
+    
+    /**
+     * Test para leer los registros
+     * de la tabla VIVIENDAS
+     */
     @Test
     public void testLeer(){
         /**
@@ -205,6 +212,11 @@ public class CtrlViviendasTest {
     }
     
     
+    
+    /**
+     * Test para modificar un registro
+     * de la tabla VIVIENDAS
+     */
     @Test 
     public void testModificar(){
         /**
@@ -255,6 +267,11 @@ public class CtrlViviendasTest {
     }
     
     
+    
+    /**
+     * Test para eliminar un registro
+     * de la tabla VIVIENDAS
+     */
     @Test
     public void testEliminar(){
         /**
@@ -280,9 +297,14 @@ public class CtrlViviendasTest {
          * hemos pasado el test
          */
         assertNull(vivienda);
-    }
+    }   
     
     
+    
+    /**
+     * Test para buscar un registro
+     * de la tabla VIVIENDAS
+     */
     @Test
     public void testBuscar(){
          /**

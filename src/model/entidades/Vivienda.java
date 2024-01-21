@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model.entidades;
 
 
@@ -90,21 +86,5 @@ public class Vivienda implements Entidad{
 
     public void setPrecioMensual(Double precioMensual) {
         this.precioMensual = precioMensual;
-    }
-    
-    //**************************** TOSTRING ************************************
-
-    @Override
-    public String toString() {
-        return "Vivienda{" 
-                + "ubicacion=" + ubicacion + 
-                ", propietario=" + propietario + 
-                ", metros=" + metros + 
-                ", numRooms=" + numRooms + 
-                ", numBathrooms=" + numBathrooms +
-                ", cod_ref=" + cod_ref +
-                ", precioMensual=" + precioMensual +
-                '}';
-    }
-    
+    } 
 }

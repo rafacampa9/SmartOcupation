@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 //**************************** PACKAGES ****************************************
@@ -268,6 +264,7 @@ public class CtrlInicioEmpleado implements ActionListener{
             Fechas fecha = new Fechas();
             fecha.setTitle("Seleccionar Fechas");
             fecha.setLocationRelativeTo(null);
+            fecha.setSize(310,333);
             fecha.setResizable(false);
             fecha.setVisible(true);
             fecha.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
