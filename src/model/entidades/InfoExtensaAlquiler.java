@@ -12,19 +12,22 @@ import java.util.Date;
  */
 public class InfoExtensaAlquiler {
     
-    //ATRIBUTOS
+    //**********************ATRIBUTOS*******************************************
     private int numExp, idVivienda, metros, numRooms, numBathrooms, edadCl;
     private Double precio;
     private boolean pagado;
     private String nombreCl, nombrePr, ubicacion, empleoCl;
     private Date fechaEntrada, fechaSalida;
     
-    // CONSTRUCTORES
+    //******************** CONSTRUCTORES****************************************
 
     public InfoExtensaAlquiler() {
     }
 
-    public InfoExtensaAlquiler(int numExp, int idVivienda, int metros, int numRooms, int numBathrooms, int edadCl, Double precio, boolean pagado, String nombreCl, String nombrePr, String ubicacion, String empleo, Date fechaEntrada, Date fechaSalida) {
+    public InfoExtensaAlquiler(int numExp, int idVivienda, int metros, 
+            int numRooms, int numBathrooms, int edadCl, Double precio,
+            boolean pagado, String nombreCl, String nombrePr, String ubicacion,
+            String empleo, Date fechaEntrada, Date fechaSalida) {
         this.numExp = numExp;
         this.idVivienda = idVivienda;
         this.metros = metros;
@@ -42,6 +45,8 @@ public class InfoExtensaAlquiler {
         
     }
     
+    
+    //************************GETTERS AND SETTERS ******************************
     public int getEdadCl() {
         return edadCl;
     }

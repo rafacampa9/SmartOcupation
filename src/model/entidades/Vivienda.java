@@ -4,7 +4,6 @@
  */
 package model.entidades;
 
-import model.entidades.Propietario;
 
 /**
  *
@@ -12,28 +11,30 @@ import model.entidades.Propietario;
  */
 public class Vivienda implements Entidad{
     
-    //ATRIBUTOS
+    //**********************ATRIBUTOS*******************************************
     private String ubicacion, propietario;
     private int metros, numRooms, numBathrooms, cod_ref;
     private Double precioMensual;
     
     
-    //CONSTRUCTORES
+    //*********************CONSTRUCTORES****************************************
     public Vivienda() {
     }
 
-    public Vivienda(String ubicacion, int metros, int numRooms, int numBathrooms, int cod_ref, double precioMensual, Propietario propietario) {
+    public Vivienda(String ubicacion, int metros, int numRooms, 
+            int numBathrooms, int cod_ref, double precioMensual, 
+            String propietario) {
         this.ubicacion = ubicacion;
         this.metros = metros;
         this.numRooms = numRooms;
         this.numBathrooms = numBathrooms;
         this.cod_ref = cod_ref;
         this.precioMensual = precioMensual;
-        this.propietario = propietario.getDni();
+        this.propietario = propietario;
     }
     
     
-    // GETTER Y SETTER
+    // ********************GETTER Y SETTER**************************************
 
     public String getUbicacion() {
         return ubicacion;
@@ -91,5 +92,19 @@ public class Vivienda implements Entidad{
         this.precioMensual = precioMensual;
     }
     
+    //**************************** TOSTRING ************************************
+
+    @Override
+    public String toString() {
+        return "Vivienda{" 
+                + "ubicacion=" + ubicacion + 
+                ", propietario=" + propietario + 
+                ", metros=" + metros + 
+                ", numRooms=" + numRooms + 
+                ", numBathrooms=" + numBathrooms +
+                ", cod_ref=" + cod_ref +
+                ", precioMensual=" + precioMensual +
+                '}';
+    }
     
 }

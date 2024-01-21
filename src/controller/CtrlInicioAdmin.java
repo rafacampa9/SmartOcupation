@@ -4,6 +4,8 @@
  */
 package controller;
 
+
+//******************************** PACKAGES ************************************
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
@@ -22,14 +24,38 @@ import view.Viviendas;
 /**
  *
  * @author rafacampa9
- */
+ * 
+ * 
+ * Esta clase controla la iteración de objetos
+ * de las clases del paquete model:
+ * 
+ * - model.entidades:
+ *  > Arrendamiento
+ *  > Cliente
+ *  > Propietario
+ *  > Vivienda
+ * 
+ * - model.sql:
+ *  > CrudSQL
+ * 
+ * - view:
+ *  > Alquiler
+ *  > Clientes
+ *  > Inicio
+ *  > InicioAdmin
+ *  > Propietarios
+ *  > Viviendas
+ */ 
 public class CtrlInicioAdmin implements ActionListener{
 
-    // ATRIBUTOS
+    //************************* ATRIBUTOS **************************************
     private InicioAdmin init = new InicioAdmin();
-    private ButtonGroup grupo;
+    private final ButtonGroup grupo;
     
-    // CONSTRUCTOR
+    
+    
+    
+    //************************ CONSTRUCTOR *************************************
     
     public CtrlInicioAdmin(InicioAdmin init) {
         this.init = init;
@@ -47,35 +73,75 @@ public class CtrlInicioAdmin implements ActionListener{
         this.grupo.add(init.rbViviendas);
     }
     
+    
+    //************************* MÉTODOS ****************************************
+    
+    /**
+     * Para iniciar la ventana Administrador
+     * centrada en la pantalla y no 
+     * redimensionable
+     */
     public void iniciar(){
         init.setTitle("Administrador");
         init.setLocationRelativeTo(null);
         init.setResizable(false);
     }
 
+    
+    /**
+     * Método que sobrescribimos de la interfaz
+     * ActionListener que atiende a la escucha
+     * del evento ActionEvent
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
+        /**
+         * Declaramos un objeto CrudSQL
+         * y lo inicializamos
+         */
         CrudSQL crud = new CrudSQL();
+        
+        
+        /**
+         * Si pulsamos sobre Clientes
+         */
         if (e.getSource() == init.rbClientes){
             Cliente cliente = new Cliente();
             Clientes cl = new Clientes();
-            
+            /**
+             * Iniciamos la clase CtrlClientes y hacemos
+             * visible la ventana de la clase Clientes
+             */
             CtrlClientes ctrl = new CtrlClientes(cliente, crud, cl);
             ctrl.iniciar();
             cl.setVisible(true);
             
         }
         
+        
+        /**
+         * Si pulsamos sobre Propietarios,
+         * iniciaremos un objeto de la clase CtrlPropietario
+         * para poder interactuar con la ventana
+         * Porpietarios
+         */
         if (e.getSource() == init.rbPropietarios){
             Propietario propietario = new Propietario();
             Propietarios prop = new Propietarios();
             
-            CtrlPropietario ctrl = new CtrlPropietario (propietario, crud, prop);
+            CtrlPropietario ctrl = new CtrlPropietario (
+                                    propietario,crud, prop);
             ctrl.iniciar();
             prop.setVisible(true);
             
         }
         
+        
+        /**
+         * Si pulsamos sobre Inicio,
+         * volveremos a la pantalla de Inicio
+         */
         if (e.getSource() == init.rbInicio){
             Inicio inicio = new Inicio();
             CtrlInicio ctrl = new CtrlInicio(inicio);
@@ -84,6 +150,13 @@ public class CtrlInicioAdmin implements ActionListener{
             init.setVisible(false);
         }
         
+        
+        /**
+         * Si pulsamos sobre Viviendas,
+         * iniciaremos un objeto de la clase
+         * CtrlViviendas y atenderemos a 
+         * la ventana Viviendas
+         */
         if (e.getSource() == init.rbViviendas){
             Vivienda vivienda = new Vivienda();
             Viviendas v = new Viviendas();
@@ -93,6 +166,16 @@ public class CtrlInicioAdmin implements ActionListener{
             
         }
         
+        
+        
+        
+        
+        /**
+         * Si pulsmos sobre Arrendamientos,
+         * iniciaremos un objeto de la clase
+         * CtrlArrendamiento y atenderemos
+         * a la ventana Alquiler
+         */
         if (e.getSource() == init.rbArrendamientos){
             Arrendamiento arr = new Arrendamiento();
             Alquiler alq = new Alquiler();

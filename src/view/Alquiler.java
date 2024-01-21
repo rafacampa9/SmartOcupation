@@ -77,7 +77,7 @@ public class Alquiler extends javax.swing.JFrame {
         lFechaEntrada.setText("Fecha de Entrada:");
         jPanel2.add(lFechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 130, 30));
 
-        fechaEntrada.setMaxSelectableDate(new java.util.Date(1703980865000L));
+        fechaEntrada.setMaxSelectableDate(new java.util.Date(1735603265000L));
         fechaEntrada.setMinSelectableDate(new java.util.Date(65000L));
         fechaEntrada.setName("fechaEntrada"); // NOI18N
         jPanel2.add(fechaEntrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 160, 30));

@@ -10,10 +10,10 @@ package model.entidades;
  */
 public class Propietario implements Entidad{
     
-    //ATRIBUTOS
+    //************************ATRIBUTOS*****************************************
     private String dni, nombre;
     
-    // CONSTRUCTORES
+    //**********************CONSTRUCTORES**************************************
     public Propietario() {
     }
 
@@ -22,7 +22,7 @@ public class Propietario implements Entidad{
         this.nombre = nombre;
     }
     
-    // GETTER Y SETTER
+    //********************* GETTER Y SETTER ************************************
 
     public String getDni() {
         return dni;

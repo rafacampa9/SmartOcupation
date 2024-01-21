@@ -10,12 +10,12 @@ package model.entidades;
  */
 public class Cliente implements Entidad{
     
-    // ATRIBUTOS
+    //************************ ATRIBUTOS****************************************
     private String dni, nombre, empleo;
     private int edad;
     
     
-    //CONSTRUCTORES
+    //***********************CONSTRUCTORES**************************************
     public Cliente() {
     }
 
@@ -26,7 +26,7 @@ public class Cliente implements Entidad{
         this.edad = edad;
     }
 
-    // GETTER Y SETTER
+    //********************** GETTER Y SETTER************************************
     public String getDni() {
         return dni;
     }
@@ -58,10 +58,18 @@ public class Cliente implements Entidad{
     public void setEdad(int edad) {
         this.edad = edad;
     }
+    
+    //********************** TOSTRING *****************************************
 
     @Override
     public String toString() {
-        return "Cliente{" + "dni=" + dni + ", nombre=" + nombre + ", empleo=" + empleo + ", edad=" + edad + '}';
+        return "Cliente{" + 
+                "dni=" + dni + 
+                ", nombre=" + nombre + 
+                ", empleo=" + empleo + 
+                ", edad=" + edad + 
+                '}';
+        
     }
     
     

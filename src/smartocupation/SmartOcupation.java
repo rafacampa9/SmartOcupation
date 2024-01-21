@@ -16,7 +16,7 @@ import view.Inicio;
 public class SmartOcupation {
 
     /**
-     * @param args the command line arguments
+     * @param args the command line argumentsa
      */
     public static void main(String[] args) {
      

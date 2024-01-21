@@ -1,33 +1,30 @@
-//****************************** PACKAGES **************************************
-import controller.CtrlPropietario;
+//************************** PACKAGES ******************************************
+import controller.CtrlClientes;
 import java.awt.event.ActionEvent;
 import java.util.LinkedHashSet;
 import javax.swing.table.DefaultTableModel;
+import model.entidades.Cliente;
 import model.entidades.Entidad;
+import model.sql.CrudSQL;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import model.entidades.Propietario;
-import model.sql.CrudSQL;
 import org.junit.Before;
 import org.junit.Test;
-import view.Propietarios;
+import view.Clientes;
+
 
 
 /**
  *
  * @author rafacampa9
- * 
- * Clase de pruebas para la clase
- * CtrlPropietario
  */
-public class CtrlPropietarioTest {
+public class CtrlClientesTest {
     //*********************** ATRIBUTOS ****************************************
-    private Propietario pr;
+    private Cliente cl;
     private CrudSQL crud;
-    private Propietarios prs;
-    private CtrlPropietario ctrl;
-    
+    private Clientes c;
+    private CtrlClientes ctrl;
     
     //************************ MÉTODOS *****************************************
     
@@ -35,136 +32,157 @@ public class CtrlPropietarioTest {
      * Antes de realizar los test,
      * instanciamos los atributos
      * mediante sus constructores 
-     * vacíos (crud y prs) y pr
-     * con su constructor con
-     * parámetros, y los
+     * vacíos (cl, crud y c) y los
      * pasamos como parámetro del
      * constructor ctrl
      * 
      * También inicializamos el
-     * dni del objeto Propietario 
-     * y el nombre con los valores
-     * aportados
+     * dni del objeto Cliente 
+     * ,el nombre, su edad y su empleo
+     * con los valores aportados
      */
     @Before
     public void setUp() {
-        pr = new Propietario("10101010Q", "Levi Ackerman");
+        cl = new Cliente("20202020K","Pelé", 
+                "Futbolista", 82);
         crud = new CrudSQL();
-        prs = new Propietarios();
-        ctrl = new CtrlPropietario(pr, crud, prs);
-
+        c = new Clientes();
+        ctrl = new CtrlClientes(cl, crud, c);
+        
     }
-
     
     
-    //************************** TESTS *****************************************
+    
+    
+    
+//********************************* TESTS **************************************   
     @Test
     public void testInsertar() {
         /**
-         * Probamos insertando los DNI y Nombre
-         * que vemos abajo
+         * Probamos insertando un objeto de 
+         * la clase Cliente que contenga todos
+         * sus atributos
          */
-        prs.jTextField1.setText(pr.getDni()); 
-        prs.jTextField2.setText(pr.getNombre()); 
+        c.txtDNI.setText(cl.getDni()); 
+        c.txtNombre.setText(cl.getNombre()); 
+        c.txtEdad.setText(String.valueOf(cl.getEdad()));
+        c.txtEmpleo.setText(cl.getEmpleo());
+        
+            
         
         /**
          * Probamos a insertar llamando
          * al ActionEvent producido por el botón
          * INSERT
          */
-        ctrl.actionPerformed(new ActionEvent(prs.btnInsert, 
+        ctrl.actionPerformed(new ActionEvent(c.btnInsert, 
                 ActionEvent.ACTION_PERFORMED, null));
         
         /**
          * Comprobamos que realmente hemos insertado
          * el registro, leyendo todos los registros 
-         * de la tabla PROPIETARIOS
+         * de la tabla CLIENTES
          */
-        Propietario p = (Propietario) crud.buscar("PROPIETARIOS", 
-                                                pr);
+        Cliente customer = (Cliente) crud.buscar("CLIENTES", 
+                                                cl);
         
         
         /**
-         * Devolverá true si encontrado = true
+         * Devolverá true si los datos de la clase Cliente
+         * están en la BBDD, pueda insertarse o no, ya que
+         * en caso de que no pueda insertarse, será porque
+         * el registro ya existe
          */
-        assertEquals(p.getDni(), pr.getDni());
-        assertEquals(p.getNombre(), pr.getNombre());
+        assertEquals(customer.getDni(), cl.getDni());
+        assertEquals(customer.getNombre(), cl.getNombre());
     }
-
+    
+    
     @Test
-    public void testLeer() {
+    public void testLeer(){
         /**
          * Pulsa el botón Leer de la ventana Propietarios
          */
-        ctrl.actionPerformed(new ActionEvent(prs.btnRead, 
+        ctrl.actionPerformed(new ActionEvent(c.btnRead, 
                 ActionEvent.ACTION_PERFORMED, null));
-        DefaultTableModel table = (DefaultTableModel) prs.tabla.getModel();
+        DefaultTableModel table = (DefaultTableModel) c.tabla.getModel();
         
         int cont = 0;
-        LinkedHashSet<Propietario> propietarios =
+        LinkedHashSet<Cliente> clientes =
                 new LinkedHashSet<>();
         /**
          * Insertamos en la lista propietarios los
          * valores que devuelve la tabla asociada al btnRead
          */
         for (int i = 0; i < table.getRowCount(); i++){
-            Propietario p = new Propietario();
+            Cliente p = new Cliente();
             p.setDni(String.valueOf(table.getValueAt(cont, 0)));
             p.setNombre(
                     String.valueOf(table.getValueAt(cont, 1))
             );
+            p.setEdad(Integer.parseInt(
+                    String.valueOf(table.getValueAt(cont, 2))
+                    ));
+            p.setEmpleo(
+                    String.valueOf(table.getValueAt(cont, 3)
+                    ));
             cont++;
-            propietarios.add(p);
+            clientes.add(p);
         }
         
         boolean t = true;
-        for (var e: propietarios){
-            Propietario pro = 
-                        (Propietario) crud.buscar("PROPIETARIOS",
-                                                     e);
-                
+        for (var e: clientes){
             /**
-             * En caso de no encontrarse algún recurso
+             * En caso de no encontrarse algún registro
              */
-            if (pro.getDni().isEmpty()){
-                assertNull(e);
-            } else{
-                
-                assertEquals(pro.getDni(), e.getDni());
-                assertEquals(pro.getNombre(), e.getNombre());
-                
-            }
             
-            assertTrue(t);
+            if (crud.buscar("CLIENTES", e) == null){
+                t = false;
+            /**
+             * Si encontramos registros, comprobamos que sean iguales
+             * al cliente
+             */
+            } else{
+                Cliente cli = 
+                        (Cliente) crud.buscar("CLIENTES", e);
+                
+                assertEquals(cli.getDni(), e.getDni());
+                assertEquals(cli.getNombre(), e.getNombre());
+                assertEquals(cli.getEdad(), e.getEdad());
+                assertEquals(cli.getEmpleo(), e.getEmpleo());
+            }
         }
         
-        
-
+        assertTrue(t);
     }
-
+    
+    
     @Test
-    public void testModificar() {
+    public void testModificar(){
         /**
          * Escribimos en el campo DNI el dni del
          * registro y escribimos otro nombre
          */
-        prs.jTextField1.setText(pr.getDni()); 
-        pr.setNombre("Naruto");
-        prs.jTextField2.setText(pr.getNombre()); 
+        c.txtDNI.setText(cl.getDni()); 
+        cl.setNombre("Pedro León");
+        c.txtNombre.setText(cl.getNombre()); 
+        c.txtEdad.setText(String.valueOf(cl.getEdad()));
+        c.txtEmpleo.setText(cl.getEmpleo());
         
 
         /**
          * Llamamos al evento que se produce
          * al pulsar el botón MODIFICAR
          */
-        ctrl.actionPerformed(new ActionEvent(prs.btnUpdate, 
+        ctrl.actionPerformed(new ActionEvent(c.btnUpdate, 
                 ActionEvent.ACTION_PERFORMED, null));
         
         /**
          * Buscamos al propietario
          */
-        Propietario prop = (Propietario) crud.buscar("PROPIETARIOS", 
-                pr);
+        Cliente cli = (Cliente) crud.buscar("CLIENTES", 
+                cl);
+
         
         /**
          * Si hemos encontrado al propietario,
@@ -172,46 +190,49 @@ public class CtrlPropietarioTest {
          * nuestro objeto pr que tiene
          * los datos modificados
          */
-        if (prop != null)
-            assertEquals(pr.getNombre(), prop.getNombre());
-        else
-            assertNull(prop);
+        if (cli != null)
+            assertEquals(cl.getNombre(), cli.getNombre());
+        else{
+            assertNull(cli);
+        }
     }
-
+    
+    
     @Test
-    public void testEliminar() {
+    public void testEliminar(){
         /**
          * Introducimos en el campo de texto
          * el dni de nuestro objeto pr
          */
-        prs.jTextField1.setText(pr.getDni()); 
+        c.txtDNI.setText(cl.getDni()); 
         
         /**
          * llamamos al evento del botón BORRAR
          */
-        ctrl.actionPerformed(new ActionEvent(prs.btnDelete, 
+        ctrl.actionPerformed(new ActionEvent(c.btnDelete, 
                 ActionEvent.ACTION_PERFORMED, null));
  
         /**
          * Buscamos el propietario que hemos
          * borrado por su id
          */
-        Propietario prop = (Propietario) crud.buscar("PROPIETARIOS",
-                pr);
+        Cliente prop = (Cliente) crud.buscar("CLIENTES",
+                cl);
         /**
          * Si el objeto prop es nulo,
          * hemos pasado el test
          */
         assertNull(prop);
     }
-
+    
+    
     @Test
-    public void testBuscar() {
+    public void testBuscar(){
         /**
          * Pasamos al texto dni el 
          * DNI de Propietario pr
          */
-        prs.jTextField1.setText(pr.getDni());
+        c.txtDNI.setText(cl.getDni());
         
         
         /**
@@ -220,10 +241,10 @@ public class CtrlPropietarioTest {
          * Realizamos la búsqueda
          */
         boolean t = true;
-        ctrl.actionPerformed(new ActionEvent(prs.btnBuscar, 
+        ctrl.actionPerformed(new ActionEvent(c.btnSearch, 
                 ActionEvent.ACTION_PERFORMED, null));
         
-        DefaultTableModel table = (DefaultTableModel) prs.tabla.getModel();
+        DefaultTableModel table = (DefaultTableModel) c.tabla.getModel();
         
         /**
          * Supongamos que la tabla nos devuelve
@@ -236,10 +257,10 @@ public class CtrlPropietarioTest {
              * SELECT * FROM PROPIETARIOS;
              */
             LinkedHashSet<Entidad> select = 
-                    crud.leer("PROPIETARIOS");
-            LinkedHashSet<Propietario> props = new LinkedHashSet<>();
+                    crud.leer("CLIENTES");
+            LinkedHashSet<Cliente> props = new LinkedHashSet<>();
             for (Entidad entity: select){
-                props.add((Propietario) entity);
+                props.add((Cliente) entity);
             }
             /**
              * Comprueba si alguno 
@@ -247,12 +268,12 @@ public class CtrlPropietarioTest {
              * PROPIETARIOS tiene el mismo
              * dni que el pasado por pantalla
              */
-            for (Propietario p: props){
+            for (Cliente p: props){
                 /**
                  * Si hubiera alguno,
                  * fallariamos
                  */
-                if (p.getDni().equals(pr.getDni())){
+                if (p.getDni().equals(cl.getDni())){
                     t = false;
                 }
             }
@@ -264,7 +285,7 @@ public class CtrlPropietarioTest {
              * puede dar error en el registro
              */
             t = false;
-            if(table.getValueAt(0, 0).equals(pr.getDni()))
+            if(table.getValueAt(0, 0).equals(cl.getDni()))
                 t = true;
         }
         /**
@@ -273,7 +294,6 @@ public class CtrlPropietarioTest {
          */
         assertTrue(t);
         
-  
     }
+    
 }
-

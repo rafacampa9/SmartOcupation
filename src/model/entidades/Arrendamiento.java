@@ -4,26 +4,32 @@
  */
 package model.entidades;
 
+//********************************* PACKAGES ***********************************
 import java.util.Date;
 
 /**
  *
  * @author rafacampa9
+ * 
+ *  Clase que representa
+ *  los registros de la 
+ *  tabla ARRENDAMIENTOS
  */
 public class Arrendamiento implements Entidad{
     
-    // ATRIBUTOS
+    // ***************************ATRIBUTOS*************************************
     private int numExp, idVivienda;
     private Date fechaEntrada, fechaSalida;
     private boolean pagado;
     private String cliente;
     
     
-    // CONSTRUCTORES
+    // *************************CONSTRUCTORES***********************************
     public Arrendamiento() {
     }
 
-    public Arrendamiento(int numExp, int idVivienda, Date fechaEntrada, Date fechaSalida, boolean pagado, String cliente) {
+    public Arrendamiento(int numExp, int idVivienda, Date fechaEntrada, 
+            Date fechaSalida, boolean pagado, String cliente) {
         this.numExp = numExp;
         this.idVivienda = idVivienda;
         this.fechaEntrada = fechaEntrada;
@@ -33,7 +39,7 @@ public class Arrendamiento implements Entidad{
     }
     
     
-    //GETTER Y SETTER
+    //**************************GETTER Y SETTER*********************************
     public int getNumExp() {
         return numExp;
     }
