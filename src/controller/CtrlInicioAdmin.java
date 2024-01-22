@@ -1,7 +1,6 @@
+//******************************** PACKAGES ************************************
 package controller;
 
-
-//******************************** PACKAGES ************************************
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
@@ -112,7 +111,7 @@ public class CtrlInicioAdmin implements ActionListener{
             CtrlClientes ctrl = new CtrlClientes(cliente, crud, cl);
             ctrl.iniciar();
             cl.setVisible(true);
-            
+            init.setVisible(false);
         }
         
         
@@ -130,21 +129,10 @@ public class CtrlInicioAdmin implements ActionListener{
                                     propietario,crud, prop);
             ctrl.iniciar();
             prop.setVisible(true);
-            
-        }
-        
-        
-        /**
-         * Si pulsamos sobre Inicio,
-         * volveremos a la pantalla de Inicio
-         */
-        if (e.getSource() == init.rbInicio){
-            Inicio inicio = new Inicio();
-            CtrlInicio ctrl = new CtrlInicio(inicio);
-            ctrl.iniciar();
-            inicio.setVisible(true);
             init.setVisible(false);
         }
+        
+        
         
         
         /**
@@ -159,7 +147,7 @@ public class CtrlInicioAdmin implements ActionListener{
             CtrlViviendas ctrl = new CtrlViviendas(vivienda, crud, v);
             ctrl.iniciar();
             v.setVisible(true);
-            
+            init.setVisible(false);
         }
         
         
@@ -178,8 +166,22 @@ public class CtrlInicioAdmin implements ActionListener{
             CtrlArrendamiento ctrl = new CtrlArrendamiento(arr, crud, alq);
             ctrl.iniciar();
             alq.setVisible(true);
-            
-            
+            init.setVisible(false);   
+        }
+        
+        
+        
+        
+        /**
+         * Si pulsamos sobre Inicio,
+         * volveremos a la pantalla de Inicio
+         */
+        if (e.getSource() == init.rbInicio){
+            Inicio inicio = new Inicio();
+            CtrlInicio ctrl = new CtrlInicio(inicio);
+            ctrl.iniciar();
+            inicio.setVisible(true);
+            init.setVisible(false);
         }
     }
     

@@ -46,19 +46,15 @@ public class Conexion {
                     this.USER, 
                     this.PASSWORD
             );
-        } catch (SQLException e){
             /**
-             * Excepción de SQL
+             * Excepción de SQL                   (SQLException)
+             * Excepción al no encontrar la clase (ClassNotFoundException)
+             * 
+             * En caso de producirse, conn = null
              */
-            e.printStackTrace();
-        } catch (ClassNotFoundException e){
-            /**
-             * Excepción por no encontrar
-             * la clase
-             */
-            e.printStackTrace();
+        } catch (SQLException | ClassNotFoundException e){
+            conn = null;
         }
-        
         /**
          *   Retornamos nuestro objeto 
          *   conn

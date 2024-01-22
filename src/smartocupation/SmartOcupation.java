@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+//************************** PACKAGES ******************************************
 package smartocupation;
 
 
@@ -16,6 +13,9 @@ import view.Inicio;
 public class SmartOcupation {
 
     /**
+     * 
+     *Método main
+     * 
      * @param args the command line argumentsa
      */
     public static void main(String[] args) {

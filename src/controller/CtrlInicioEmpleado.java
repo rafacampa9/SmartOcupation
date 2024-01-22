@@ -1,6 +1,5 @@
-package controller;
-
 //**************************** PACKAGES ****************************************
+package controller;
 
 import model.entidades.GenerarInforme;
 import java.awt.event.ActionEvent;
@@ -100,15 +99,15 @@ public class CtrlInicioEmpleado implements ActionListener{
          */
         hist.setTitle("Lista Arrendamientos");
         hist.setLocationRelativeTo(null);
-        hist.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
         
         morosos.setTitle("Lista Adeudados");
         morosos.setLocationRelativeTo(null);
-        morosos.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
         
         viv.setTitle("Viviendas Sin Ocupar");
         viv.setLocationRelativeTo(null);
-        viv.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
         
         
         /**
@@ -196,12 +195,14 @@ public class CtrlInicioEmpleado implements ActionListener{
              * un botón GENERAR INFORME
              * que genera un JasperReport
              */
+            init.setVisible(false);
             hist.setVisible(true);
             hist.setTitle("Lista histórica de arrendamientos");
             hist.setResizable(false);
+            
             /**
              * Atiende a la llamada de un evento
-             * ActionEvent evt
+             * ActionEvent evt (botón GENERAR INFORME)
              */
             hist.btnInf.addActionListener((ActionEvent evt) ->
             {
@@ -216,6 +217,12 @@ public class CtrlInicioEmpleado implements ActionListener{
                 String nombreInforme = "SmartOcupation.jrxml";
                 info.generarInforme(rutaInforme, nombreInforme);
             });
+            
+            hist.btnBack.addActionListener((ActionEvent) ->{
+                hist.setVisible(false);
+                init.setVisible(true);
+            });
+            
             
         }
         
@@ -248,17 +255,22 @@ public class CtrlInicioEmpleado implements ActionListener{
              * hacemos visible la ventana
              * de los morosos
              */
+            init.setVisible(false);
             morosos.setVisible(true);
             morosos.setTitle("Lista de clientes sin pagar");
             morosos.setResizable(false);
+            morosos.btnBack.addActionListener((ActionEvent)->{
+                morosos.setVisible(false);
+                init.setVisible(true);
+            });
         }
-        
+                    
         
         /**
          * 
          * Si pulsamos sobre la LISTA DE ALQUILER según la fecha
          * hacemos visible la ventana que nos da a elegir
-         * la fecha de entrada y de salida 
+         * la fecha de entrada y de salida.
          */
         if (e.getSource() == init.rbDate){
             Fechas fecha = new Fechas();
@@ -277,7 +289,7 @@ public class CtrlInicioEmpleado implements ActionListener{
             fecha.btnSend.addActionListener((ActionEvent evt) ->
             {
                 /**
-                 * Obtenemos las fechas 
+                 * Obtenemos las fechas
                  * entrada y salida
                  */
                 Date fechaEntrada = fecha.fechaEntrada.getDate();
@@ -295,15 +307,19 @@ public class CtrlInicioEmpleado implements ActionListener{
                             JOptionPane.ERROR_MESSAGE);
                     
                     /**
-                     * Si has ingresado las 
+                     * Si has ingresado las
                      * fechas utilizamos la misma ventana
                      * que para el histórico de alquiler.
                      * Simplemente, se devuelve la consulta
                      * según su fecha entrada y salida
                      * fecha >= fechaEntrada
                      * fecha <= fechaSalida
+                     *
+                     * También ocultamos la ventana
+                     * InicioEmpleado
                      */
                 } else {
+                    init.setVisible(false);
                     fecha.setVisible(false);
                     hist.setVisible(true);
                     hist.btnInf.setVisible(false);
@@ -315,27 +331,32 @@ public class CtrlInicioEmpleado implements ActionListener{
                      * según la fecha
                      */
                     LinkedHashSet<InfoExtensaAlquiler>arrendamientosFiltrados
-                            = crud.arrendamientosPorFecha(fechaEntrada, 
-                                                        fechaSalida);
+                            = crud.arrendamientosPorFecha(fechaEntrada,
+                                    fechaSalida);
                     
                     /**
-                     * Agregamos cada registro a la 
+                     * Agregamos cada registro a la
                      * tabla para mostrarla (previamente
                      * la vaciamos)
                      */
                     table.setRowCount(0);
                     for (InfoExtensaAlquiler ar : arrendamientosFiltrados) {
                         Object[] fila = {
-                                    ar.getNumExp(), 
-                                    ar.getPrecio(),
-                                    ar.isPagado(),
-                                    formato.format(ar.getFechaEntrada()),
-                                    formato.format(ar.getFechaSalida()),
-                                    ar.getNombreCl(), ar.getNombrePr()
-                                };
+                            ar.getNumExp(),
+                            ar.getPrecio(),
+                            ar.isPagado(),
+                            formato.format(ar.getFechaEntrada()),
+                            formato.format(ar.getFechaSalida()),
+                            ar.getNombreCl(), ar.getNombrePr()
+                        };
                         
                         table.addRow(fila);
                     }
+                    
+                    hist.btnBack.addActionListener((ActionEvent) ->{
+                        hist.setVisible(false);
+                        init.setVisible(true);
+                    });
                 }
             });
 
@@ -371,11 +392,27 @@ public class CtrlInicioEmpleado implements ActionListener{
             }
             /**
              * Hacemos visible la ventana
-             * de ViviendasSinOcupar
+             * de ViviendasSinOcupar y
+             * ocultamos la ventana de inicio
+             * empleados
              */
+            init.setVisible(false);
             viv.setVisible(true);
             viv.setTitle("Lista de viviendas sin alquilar");
             viv.setResizable(false);
+            
+            /**
+             * Si pulsamos el botón VOLVER 
+             * de ViviendasSinOcupar
+             */
+            viv.btnBack.addActionListener((ActionEvent) ->
+            {
+                /**
+                 * Volvemos a la pantalla IncioEmpleados
+                 */
+                viv.setVisible(false);
+                init.setVisible(true);
+            });
         }
     }
     

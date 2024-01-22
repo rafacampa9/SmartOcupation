@@ -1,6 +1,5 @@
-package controller;
-
 //******************************* PACKAGES *************************************
+package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -69,7 +68,6 @@ public class CtrlViviendas implements ActionListener{
         v.setTitle("VIVIENDAS");
         v.setLocationRelativeTo(null);
         v.setResizable(false);
-        v.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
     
     

@@ -39,7 +39,8 @@ public class CtrlClientes implements ActionListener{
     
     // ******************* CONSTRUCTOR *****************************************
 
-    public CtrlClientes(Cliente cliente, CrudSQL crud, Clientes cl) {
+    public CtrlClientes(Cliente cliente, CrudSQL crud, Clientes cl) 
+    {
         this.cliente = cliente;
         this.crud = crud;
         this.cl = cl;
@@ -74,7 +75,6 @@ public class CtrlClientes implements ActionListener{
         cl.setTitle("Clientes");
         cl.setLocationRelativeTo(null);
         cl.setResizable(false);
-        cl.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     
@@ -454,6 +454,8 @@ public class CtrlClientes implements ActionListener{
             limpiaTabla();
 
         }
+        
+        
         
         /**
          * Si pulsamos BUSCAR

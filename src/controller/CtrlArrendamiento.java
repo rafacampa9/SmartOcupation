@@ -123,7 +123,6 @@ public class CtrlArrendamiento implements ActionListener{
         alq.setTitle("Arrendamientos");
         alq.setLocationRelativeTo(null);
         alq.setResizable(false);
-        alq.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
     
     /**

@@ -1036,14 +1036,15 @@ public class CrudSQL {
         /**
          * CONSULTA SQL
          */
-        String consulta = """
-                          SELECT a.num_exp, v.precio_mensual, a.pagado, 
-                          a.fecha_entrada, a.fecha_salida, cl.nombre nombreCl,
-                          p.nombre nombrePr FROM ARRENDAMIENTOS a, CLIENTES cl, 
-                          VIVIENDAS v, PROPIETARIOS p
-                          WHERE cl.dni = a.cliente and a.id_vivienda = v.cod_ref 
-                          and p.dni = v.propietario
-                          """;
+        String consulta = 
+                """
+                    SELECT a.num_exp, v.precio_mensual, a.pagado, 
+                    a.fecha_entrada, a.fecha_salida, cl.nombre nombreCl,
+                    p.nombre nombrePr FROM ARRENDAMIENTOS a, CLIENTES cl, 
+                    VIVIENDAS v, PROPIETARIOS p
+                    WHERE cl.dni = a.cliente and a.id_vivienda = v.cod_ref 
+                    and p.dni = v.propietario
+                """;
         try{
             ps = conexion.prepareStatement(consulta);
             rs = ps.executeQuery();

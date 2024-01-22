@@ -1,6 +1,5 @@
-package controller;
-
 //***************************** PACKAGES ***************************************
+package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -76,7 +75,6 @@ public class CtrlPropietario implements ActionListener{
         prs.setTitle("Propietarios");
         prs.setLocationRelativeTo(null);
         prs.setResizable(false);
-        prs.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     

@@ -149,6 +149,7 @@ public class Alquiler extends javax.swing.JFrame {
                 "NÚMERO EXPEDIENTE", "FECHA ENTRADA", "FECHA SALIDA", "CLIENTE", "ID VIVIENDA", "PAGADO"
             }
         ));
+        tabla.setEnabled(false);
         jScrollPane1.setViewportView(tabla);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 110));

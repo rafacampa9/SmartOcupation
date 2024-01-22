@@ -69,13 +69,14 @@ public class Propietarios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tabla.setEnabled(false);
         jScrollPane1.setViewportView(tabla);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,13 +110,13 @@ public class Propietarios extends javax.swing.JFrame {
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 170, 30));
 
         btnBuscar.setText("BUSCAR");
-        jPanel3.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
+        jPanel3.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(294, 20, 90, 30));
 
         btnInsert.setText("INSERTAR");
         jPanel3.add(btnInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         btnRead.setText("LEER");
-        jPanel3.add(btnRead, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+        jPanel3.add(btnRead, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
 
         btnUpdate.setText("MODIFICAR");
         jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
@@ -126,7 +127,7 @@ public class Propietarios extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        jPanel3.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+        jPanel3.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 120, 90, -1));
 
         btnVolver.setText("VOLVER");
         jPanel3.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
